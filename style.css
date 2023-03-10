@@ -1,3 +1,5 @@
+/* Global */
+
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
 
 :root {
@@ -14,140 +16,201 @@
     box-sizing: border-box;
 }
 
-html {
-    font-family: 'Josefin Sans';
-    font-size: 14px;
-}
-
-/* main styling */
 body {
-
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
 }
 
-main {
-    height: 100vh;
+/* Main */
+
+/* Header */
+
+header {
+    position: absolute;
+    height: auto;
     width: 100%;
-    background: var(--gradient1);
+    padding: 30px;
+}
+
+header img {
+    width: 150px;
+}
+
+/* Container */
+
+.container {
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
     display: flex;
-    flex-direction: column;
-    min-width: 375px;
+    justify-content: flex-end;
+    min-height: 100vh;
+    flex-direction: column-reverse;
+    background-image: var(--gradient1);
 }
 
-.logo-container {
-    width: 27%;
-    margin: 2rem;
-}
+/* Text Container */
 
-.main-image-container {
+.container .left {
     width: 100%;
-    height: 31%;
-    background: url(./images/hero-mobile.jpg);
+    padding: 50px 30px 0 30px;
+}
+
+.container .left h1 {
+    font-size: 3.2rem;
+    text-align: center;
+    letter-spacing: .5rem;
+    color: var(--Desaturated-Red);
+    line-height: 3.3rem;
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+.container .left h1 span {
+    color: var(--Dark-Grayish-Red);
+    font-weight: 700;
+}
+
+.container .left p {
+    max-width: 450px;
+    text-align: center;
+    color: var(--Desaturated-Red);
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    margin: 20px auto 40px auto;
+}
+
+/* Hero Image */
+
+.container .right {
+    width: 100%;
+    height: 300px;
+    background-image: url(./images/hero-mobile.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.text-container {
-    width: 90%;
-    margin: 4.6rem auto;
-    text-align: center;
-}
+/* Form */
 
-.title {
-    font-size: 2.86rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 10.83px;
-    line-height: 3rem;
-    color: var(--Dark-Grayish-Red);
-}
-
-.title span {
-    font-weight: 300;
-    color: var(--Desaturated-Red);
-}
-
-.description {
-    margin-top: 1.14rem;
-    line-height: 1.57rem;
-    color: var(--Desaturated-Red);
-}
-
-.email-request-container {
-    margin-top: 2.29rem;
-}
-
-form {
+.container form {
     position: relative;
-}
-
-input {
-    min-height: 3.43rem;
-    padding: 1rem;
-    border: 1px solid var(--Desaturated-Red);
-    border-radius: 2rem;
+    display: block;
+    height: 50px;
     width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.container form input {
+    position: absolute;
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--Desaturated-Red);
+    height: 100%;
+    border-radius: 50px;
+    padding-left: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.1rem;
 }
 
-#submit {
-    min-height: 3.43rem;
-    background: var(--gradient2);
-    width: 20%;
-    border-radius: 2rem;
-    border: none;
-    transform: translate(193%, -99%);
+.container form button {
     cursor: pointer;
-    box-shadow: 0 5px 30px var(--Desaturated-Red);
+    position: absolute;
+    right: 0;
+    border: none;
+    height: 100%;
+    border-radius: 50px;
+    outline: none;
+    color: white;
+    width: 70px;
+    background: var(--gradient2);
+    box-shadow: 0px 0px 18px 1px var(--Desaturated-Red);
+    transition: .3s ease box-shadow;
 }
 
-#submit:hover {
-    filter: brightness(120%);
+.container form button:hover {
+    filter: brightness(110%);
+    transition: .4s ease filter;
+    box-shadow: 0px 0px 13px 2px var(--Desaturated-Red);
 }
 
-.error-icon {
-    position: relative;
-    top: -45px;
-    left: 110px;
-}
-
-.error {
+.container form input::placeholder {
     color: var(--Desaturated-Red);
+    opacity: .8;
 }
 
-@media screen and (min-width: 1440px) { 
-    html {
-        font-size: 16px;
-    }
+.container form .error-icon {
+    display: inline-block;
+    position: absolute;
+    top: 25%;
+    right: 80px;
+    display: none;
+}
 
-    main {
-        width: 100%;
-        flex-direction: row;
+.container form .error-msg {
+    position: absolute;
+    left: 30px;
+    top: 40px;
+    display: none;
+}
+
+.container form.error .error-mesg,
+.container form .error .error-icon {
+    display: block;
+}
+
+.container form .error input {
+    border: 2px solid var(--Desaturated-Red);
+}
+
+@media only screen and (min-width: 768px) {
+
+    body {
         background: url(./images/bg-pattern-desktop.svg);
     }
 
-    .logo-container {
-        position: absolute;
-        top: 4.69rem;
-        left: 10.31rem;
-        width: 11%;
+    header {
+        padding-left: 10%;
     }
 
-    .text-container {
+    .container {
+        padding-top: 0;
+        flex-direction: row;
+        padding-bottom: 0;
+    }
+
+    .container .left {
+        padding-top: 20vh;
+        width: 100%;
+        height: 100vh;
+        padding-left: 10%;
+    }
+
+    .container .left h1 {
         text-align: left;
-        margin: auto;
-        width: 60%;
+        font-size: 5rem;
+        line-height: 5.5rem;
     }
 
-    .title {
-        font-size: 4rem;
-        line-height: 4.44rem;
+    .container .left p {
+        margin-left: 0;
+        text-align: left;
+        font-size: 1.1rem;
     }
 
-    .main-image-container {
-        height: 100%;
+    .container .right {
         background: url(./images/hero-desktop.jpg);
-        background-repeat: no-repeat;
-        order: 2;
-
+        height: 700px;
+        width: 80%;
+        background-size: cover;
+        background-position: center;
     }
 
+    .container form {
+        margin-left: 0;
+        margin-top: -10px;
+    }
+
+    .container form button {
+        width: 80px;
+    }
 }
