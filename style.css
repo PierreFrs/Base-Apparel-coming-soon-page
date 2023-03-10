@@ -139,18 +139,16 @@ header img {
 }
 
 .container form .error-icon {
-    display: inline-block;
+    display: none;
     position: absolute;
     top: 25%;
     right: 80px;
-    display: none;
 }
 
 .container form .error-msg {
     position: absolute;
     left: 30px;
     top: 40px;
-    display: none;
 }
 
 .container form.error .error-mesg,
